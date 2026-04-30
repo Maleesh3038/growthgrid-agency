@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import Niches from '@/components/Niches' // අලුත් component එක import කළා
 
 export default function Home() {
   const [loading, setLoading] = useState(false)
@@ -28,26 +29,26 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-slate-900 font-light selection:bg-slate-900 selection:text-white">
       
-      {/* 01. NAVIGATION - Mobile එකේ පෑඩින් අඩු කළා */}
+      {/* 01. NAVIGATION */}
       <nav className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl border-b border-slate-100 px-4 md:px-8 py-4 md:py-6 flex justify-between items-center">
         <a href="/" className="transition-opacity hover:opacity-70">
           <img src="/images/logo.png" alt="GrowthGrid" className="h-7 md:h-9 w-auto object-contain" />
         </a>
         <div className="hidden md:flex space-x-12 text-[10px] tracking-[0.3em] uppercase font-medium">
           <a href="#services" className="hover:text-slate-400 transition-all">Services</a>
+          <a href="#expertise" className="hover:text-slate-400 transition-all">Expertise</a>
           <a href="#about" className="hover:text-slate-400 transition-all">About</a>
           <a href="#contact" className="hover:text-slate-400 transition-all">Contact</a>
         </div>
-        {/* Mobile එකේ විතරක් පේන සරල Menu Button එකක් (Optional) */}
         <div className="md:hidden text-[9px] tracking-widest uppercase font-bold">Menu</div>
       </nav>
 
-      {/* 02. HERO SECTION - Phone එකේ අකුරු ඕනෑවට වඩා ලොකු නොවෙන්න text-4xl කළා */}
+      {/* 02. HERO SECTION */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 bg-cover bg-center transition-transform duration-[10s] scale-105" style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}></div>
         <div className="relative z-10 space-y-6 w-full">
           <h1 className="text-[12vw] md:text-8xl font-bold break-words text-center">
-           GROWTHGRID
+            GROWTHGRID
           </h1>
           <p className="max-w-sm md:max-w-xl mx-auto text-[9px] md:text-[11px] text-slate-500 tracking-[0.3em] md:tracking-[0.4em] font-light leading-relaxed uppercase">
             Architecting Digital Identities Through High-Performance Engineering.
@@ -60,11 +61,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 03. SERVICES SECTION - Grid එක Fix කළා */}
+      {/* 03. SERVICES SECTION */}
       <section id="services" className="py-24 md:py-40 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-[10px] tracking-[0.6em] uppercase text-slate-300 mb-16 md:mb-24 text-center italic font-medium">Our Expertise</h2>
-          {/* Mobile: grid-cols-1 | Desktop: grid-cols-3 */}
+          <h2 className="text-[10px] tracking-[0.6em] uppercase text-slate-300 mb-16 md:mb-24 text-center italic font-medium">Our Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
             {[
               { title: 'Brand Identity', img: '/images/brand.jpg', desc: 'Crafting timeless visual languages for the digital elite.' },
@@ -84,7 +84,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 04. ABOUT SECTION - Grid එක Order එක මාරු කළා Mobile එකේදී Image එක යටට එන්න */}
+      {/* --- අලුත් SECTION එක මෙතනට ඇඩ් කළා --- */}
+      <section id="expertise">
+        <Niches />
+      </section>
+      {/* -------------------------------------- */}
+
+      {/* 04. ABOUT SECTION */}
       <section id="about" className="py-24 md:py-40 px-6 bg-slate-50 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
@@ -115,7 +121,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 05. CONTACT SECTION - Form එක මැදට ගත්තා */}
+      {/* 05. CONTACT SECTION */}
       <section id="contact" className="py-24 md:py-40 px-6 bg-white">
         <div className="max-w-sm mx-auto text-center">
           <h2 className="text-[10px] tracking-[0.6em] uppercase text-slate-300 mb-16 italic">Connect</h2>
@@ -143,7 +149,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 06. FOOTER - Responsive Padding */}
+      {/* 06. FOOTER */}
       <footer className="py-16 md:py-24 bg-white border-t border-slate-50 text-center px-6">
         <p className="text-[8px] md:text-[9px] tracking-[0.4em] uppercase text-slate-300 leading-loose">
           © 2026 GrowthGrid Agency — Colombo, SL. Built by Maleesh.
