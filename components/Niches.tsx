@@ -1,69 +1,77 @@
-import React from 'react';
+"use client"
 
 const niches = [
   {
-    title: "Coffee Shops & Cafes",
-    description: "Aesthetic designs to showcase your brew and menu.",
-    image: "/images/coffee.jpg", // Local image path
-    link: "/demo/coffee"
+    id: 1,
+    title: "Premium Coffee Roasters",
+    description: "High-performance digital storefront for specialty coffee brands.",
+    link: "https://growthgrid-demos.vercel.app/coffee",
+    image: "/images/coffee.jpg"
   },
   {
-    title: "Home Services",
-    description: "High-converting sites for Plumbers and Electricians.",
-    image: "/images/plumbing.jpg",
-    link: "/demo/plumbing"
+    id: 2,
+    title: "Elite Fitness Hub",
+    description: "Modern booking and membership management for luxury gyms.",
+    link: "https://growthgrid-demos.vercel.app/gym",
+    image: "/images/gym.jpg"
   },
   {
-    title: "Street Food & Trucks",
-    description: "Live location tracking and vibrant food galleries.",
-    image: "/images/street-food.jpg",
-    link: "/demo/street-food"
+    id: 3,
+    title: "Professional Services",
+    description: "Lead generation and booking systems for premium trade services.",
+    link: "https://growthgrid-demos.vercel.app/plumbing",
+    image: "/images/plumbing.jpg"
   },
   {
-    title: "Fitness & Gyms",
-    description: "Booking systems and schedule management.",
-    image: "/images/gym.jpg",
-    link: "/demo/gym"
+    id: 4,
+    title: "Artisan Street Food",
+    description: "Dynamic menu and location tracking for premium food vendors.",
+    link: "https://growthgrid-demos.vercel.app/street-food",
+    image: "/images/street-food.jpg"
   }
-];
+]
 
-const Niches = () => {
+export default function Niches() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-[10px] tracking-[0.6em] uppercase text-slate-300 mb-4 italic font-medium">Global Niches</h2>
-          <h3 className="text-3xl md:text-5xl font-light uppercase tracking-tight">Industries We Scale</h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {niches.map((niche, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-none aspect-[3/4] bg-slate-100">
-              {/* Always Color Image with Zoom Effect */}
-              <img 
-                src={niche.image} 
-                alt={niche.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110"
-              />
+    <section id="expertise" className="py-24 md:py-40 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-[10px] tracking-[0.6em] uppercase text-slate-300 mb-16 md:mb-24 text-center italic font-medium">
+          Industry Expertise
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+          {niches.map((niche) => (
+            <div key={niche.id} className="group space-y-8">
+              <div className="w-full aspect-video overflow-hidden bg-slate-50 rounded-[2rem] border border-slate-100 shadow-sm">
+                <img 
+                  src={niche.image} 
+                  alt={niche.title} 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+              </div>
               
-              {/* Content Overlay - ලස්සනට පේන්න පොඩි gradient එකක් තිබ්බා */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
-                <h4 className="text-xl font-light text-white uppercase tracking-widest mb-2">
+              <div className="space-y-4 px-2">
+                <h3 className="text-base md:text-lg tracking-[0.2em] uppercase font-light text-slate-900">
                   {niche.title}
-                </h4>
-                <p className="text-[10px] text-slate-200 tracking-[0.2em] uppercase mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </h3>
+                <p className="text-[11px] text-slate-400 tracking-widest leading-relaxed uppercase max-w-md">
                   {niche.description}
                 </p>
-                <button className="text-[9px] text-white tracking-[0.4em] uppercase border-b border-white/40 pb-2 w-fit hover:border-white transition-all">
-                  Explore Demo
-                </button>
+                <div className="pt-2">
+                  <a 
+                    href={niche.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[9px] tracking-[0.4em] uppercase border-b border-slate-900 pb-2 hover:text-slate-400 hover:border-slate-400 transition-all text-slate-900"
+                  >
+                    View Live Demo
+                  </a>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
-
-export default Niches;
+  )
+}
