@@ -191,15 +191,12 @@ export default function Home() {
       {/* ── HERO ── */}
       <section ref={heroRef} className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <motion.div
-          style={{ y: heroY }}
-          className="absolute inset-0 z-0 bg-cover bg-center grayscale opacity-20"
+          style={{ y: heroY, backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          className="absolute inset-0 z-0 grayscale"
           initial={{ scale: 1.08, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.2 }}
           transition={{ duration: 2.5 }}
-          css={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
         />
-        <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-        <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
 
         <motion.div style={{ opacity: heroOpacity }} className="relative z-10 w-full pt-20 space-y-6">
           <motion.p
